@@ -1,5 +1,7 @@
 InstaTest::Application.routes.draw do
   get "home/index"
+  root 'home#index'
+  mount PostgresqlLoStreamer::Engine => "/photo_data"
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }

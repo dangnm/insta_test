@@ -10,6 +10,10 @@ gem "rails_config"
 
 gem 'pg'
 
+gem 'carrierwave-postgresql'
+
+gem 'postgresql_lo_streamer'
+
 gem 'devise', '>= 3.2.1'
 
 gem 'will_paginate'
