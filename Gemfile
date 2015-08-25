@@ -20,6 +20,8 @@ gem 'will_paginate'
 
 gem 'haml-rails'
 
+gem 'simple_form'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '~> 2.3.0'
 

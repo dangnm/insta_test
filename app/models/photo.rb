@@ -13,4 +13,5 @@
 class Photo < ActiveRecord::Base
   belongs_to :user
   mount_uploader :data, PhotoUploader
+  has_many :comments, dependent: :destroy
 end
