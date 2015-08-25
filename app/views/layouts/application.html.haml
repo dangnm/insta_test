@@ -6,4 +6,7 @@
     = javascript_include_tag "application", :media => "all", "data-turbolinks-track" => true 
     = csrf_meta_tag
   %body
-    = yield
+    = render '/layouts/header'
+    .container
+      = yield
+      = render '/layouts/footer'
