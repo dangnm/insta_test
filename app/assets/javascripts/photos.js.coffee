@@ -1,13 +1,15 @@
 jQuery ->
-  new CarrierWaveCropper()
+  new window.CarrierWaveCropper()
 
-class CarrierWaveCropper
+class window.CarrierWaveCropper
   constructor: ->
     $('#photo_data_cropbox').Jcrop
       aspectRatio: 1
       setSelect: [0, 0, 200, 200]
       onSelect: @update
       onChange: @update
+      bgColor: 'transparent'
+      bgOpacity: .4
 
   update: (coords) =>
     $('#photo_data_crop_x').val(coords.x)

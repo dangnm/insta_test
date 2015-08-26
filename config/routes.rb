@@ -1,4 +1,5 @@
 InstaTest::Application.routes.draw do
+  get "search/index"
   get "upload/index"
   get "home/index"
   root 'home#index'
@@ -8,8 +9,9 @@ InstaTest::Application.routes.draw do
   }
 
   resources 'comments', :only => [:new, :create]
-  resources 'photos', :only => [:new, :create]
+  resources 'photos', :only => [:new, :create, :update]
 
+  post 'search' => 'search#search', :as => :search
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

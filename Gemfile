@@ -43,6 +43,8 @@ gem 'simple_hashtag'
 
 gem "jquery-fileupload-rails"
 
+gem 'rmagick', :require => 'RMagick'
+
 
 group :development, :test do
   gem "rspec"

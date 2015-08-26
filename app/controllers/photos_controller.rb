@@ -9,4 +9,16 @@ class PhotosController < ApplicationController
 			format.js
 		end
 	end
+
+	def update
+		@photo = Photo.find params[:id]
+		@photo.data_crop_x = params[:photo][:data_crop_x]
+		@photo.data_crop_y = params[:photo][:data_crop_y]
+		@photo.data_crop_w = params[:photo][:data_crop_w]
+		@photo.data_crop_h = params[:photo][:data_crop_h]
+		@photo.data = @photo.data.file
+		@photo.save
+		redirect_to root_path
+	end
+
 end
