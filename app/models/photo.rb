@@ -11,7 +11,11 @@
 #
 
 class Photo < ActiveRecord::Base
+	include SimpleHashtag::Hashtaggable
   belongs_to :user
   mount_uploader :data, PhotoUploader
+  crop_uploaded :data  
+  
   has_many :comments, dependent: :destroy
+  hashtaggable_attribute :caption
 end

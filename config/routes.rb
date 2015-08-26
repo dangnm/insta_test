@@ -1,4 +1,5 @@
 InstaTest::Application.routes.draw do
+  get "upload/index"
   get "home/index"
   root 'home#index'
   mount PostgresqlLoStreamer::Engine => "/photo_data"
@@ -7,6 +8,7 @@ InstaTest::Application.routes.draw do
   }
 
   resources 'comments', :only => [:new, :create]
+  resources 'photos', :only => [:new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -12,6 +12,8 @@ gem 'pg'
 
 gem 'carrierwave-postgresql'
 
+gem 'carrierwave-crop'
+
 gem 'postgresql_lo_streamer'
 
 gem 'devise', '>= 3.2.1'
@@ -36,6 +38,10 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-ui-rails', '~> 4.2.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+
+gem 'simple_hashtag'
+
+gem "jquery-fileupload-rails"
 
 
 group :development, :test do
@@ -81,4 +87,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

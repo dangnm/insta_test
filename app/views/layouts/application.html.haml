@@ -2,11 +2,11 @@
 %html
   %head
     %title="InstaTest11"
-    = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true 
-    = javascript_include_tag "application", :media => "all", "data-turbolinks-track" => true 
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application", :media => "all"
     = csrf_meta_tag
   %body
     = render '/layouts/header'
-    .container
+    .container.main-container
       = yield
       = render '/layouts/footer'

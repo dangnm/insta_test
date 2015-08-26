@@ -1,0 +1,7 @@
+.upload-photo-page
+  %h1 Choose your photo
+  = simple_form_for(Photo.new, html: { class: 'form-horizontal', :id => 'photo_uploader' }) do |form|
+    = form.hidden_field :user_id, value: current_user.id
+    = form.file_field :data, :placeholder => "", label: false
+    = form.input :caption, :placeholder => "", label: false
+    .submit.btn="Upload"

@@ -1,19 +1,16 @@
 .home-page
-  %h1 Home#index
-  %p Find me in app/views/home/index.html.haml
+  %h1 My photos
   .photo-section
     - @photos.each do |p|
-      .photo-item
+      .photo-item{:class => "item-#{p.id}" } 
         .caption=p.caption
         .photo
           %img{:src => p.data.url}
         .comment-section
           .comment-item
-            - p.comments.each do |c|
-              .comment
-                %span=c.message
+            = render "comment_item", :comments => p.comments
           .comment-post
-            = simple_form_for(current_user.comments.new, html: { class: 'form-horizontal' }, :url => comments_path) do |form|
+            = simple_form_for(current_user.comments.new, html: { class: 'form-horizontal' }, :url => comments_path, remote: true) do |form|
               = form.hidden_field :photo_id, value: p.id
               = form.hidden_field :user_id, value: current_user.id
               = form.input :message, :placeholder => "", label: false
