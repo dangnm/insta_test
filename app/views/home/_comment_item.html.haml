@@ -3,7 +3,9 @@
     %li
       .commenter-image
         %img{:src => c.user.avatar.url}
-      .comment-text
-        %p=c.message
+      .comment-text-wrapper
+        .comment-text
+          %span.commenter=c.user.name
+          %span.text=c.message
         %span.comment-time=c.created_at
       .clearfix

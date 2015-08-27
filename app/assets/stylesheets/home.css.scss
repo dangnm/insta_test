@@ -10,7 +10,12 @@ $lightGray: #999;
 .home-page {
   .photo-section {
     .photo-item {
+      margin-top: 12px;
       .photo {
+        border:1px solid #bbb;
+        margin-top: 4px;
+        margin-bottom: 8px;
+        
         img {
           width: 100%;
         }
@@ -32,19 +37,27 @@ $lightGray: #999;
           .list {
             list-style: none;
             padding-left: 0px;
-            .commenter-image {
-              float: left;
-              width: 50px;
-              img {
-                width: 100%;
+            li {
+              margin-bottom: 5px;
+              .commenter-image {
+                float: left;
+                width: 50px;
+                img {
+                  width: 100%;
+                }
               }
-            }
-            .comment-text {
-              padding-left: 60px;
-              .comment-time {
-                color: #aaa;
-                font-family: verdana;
-                font-size: 10px;
+              .comment-text-wrapper {
+                padding-left: 60px;
+                .comment-text {
+                  .commenter {
+                    font-weight: bold;
+                  }
+                }
+                .comment-time {
+                  color: #aaa;
+                  font-family: verdana;
+                  font-size: 10px;
+                }
               }
             }
           }
@@ -64,6 +77,8 @@ $lightGray: #999;
             }
             .add-wrapper {
               float: right;
+              z-index: 1;
+              position: relative;
               input {
                 width: 85px;
               }
