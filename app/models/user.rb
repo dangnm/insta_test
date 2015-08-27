@@ -15,9 +15,19 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  name                   :string(255)
+#  gender                 :string(255)
+#  bio                    :text
+#  phone                  :string(255)
+#  website                :string(255)
+#  avatar                 :integer
 #
 
 class User < ActiveRecord::Base
+	GENDER = {
+    :male => "male",
+    :female => "female"
+  } 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -25,4 +35,6 @@ class User < ActiveRecord::Base
 
   has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  mount_uploader :avatar, AvatarUploader
 end

@@ -16,3 +16,72 @@
  *= require_tree .
  */
 @import "bootstrap";
+
+$extra_small_device_size: (nil,479px);
+$medium_small_device_size: (480px,767px);
+$small_device_size: (768px,991px);
+$medium_device_size: (992px,1199px);
+$large_device_size: (1200px,nil);
+
+
+@function get-min-width($screen_size) {
+  @return nth($screen_size,1)
+}
+
+@function get-max-width($screen_size) {
+  @return nth($screen_size,2)
+}
+
+@mixin width-respond-to($screen_size) {
+  @if get-min-width($screen_size) == nil and get-max-width($screen_size) != nil {
+    @media (max-width: get-max-width($screen_size)) {
+      @content;
+    }
+  }
+  
+  @if get-min-width($screen_size) != nil and get-max-width($screen_size) == nil {
+    @media (min-width: get-min-width($screen_size)) {
+      @content;
+    }
+  }
+
+  @if get-min-width($screen_size) != nil and get-max-width($screen_size) != nil {
+    @media (min-width: get-min-width($screen_size)) and (max-width: get-max-width($screen_size)) {
+      @content;
+    }
+  }
+
+}
+
+
+body {
+  color: #666;
+  font-weight: 300;
+  background: #eee;
+}
+
+.container {
+  @include width-respond-to($small_device_size) {width: 800px;};
+  @include width-respond-to($medium_device_size) {width: 800px;};
+  @include width-respond-to($large_device_size) {width: 800px;};
+}
+
+.main-container {
+  background: #fff;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  border: 1px solid #D8D8D8;
+}
+
+/* navbar */
+.navbar-inner {
+}
+
+
+form {
+  .form-group {
+    /* Simple form alignment fix */
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}

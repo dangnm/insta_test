@@ -1,0 +1,5 @@
+- photos.each do |p|
+  .photo-item{:class => "item-#{p.id}" } 
+    .caption=p.caption
+    .photo
+      %img{:src => p.data.url}

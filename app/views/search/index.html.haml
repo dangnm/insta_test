@@ -2,6 +2,6 @@
   %h1 Search
   .search-section
     = simple_form_for(:search, html: { class: 'form-horizontal' }, :url => search_path, remote: true) do |form|
-      = form.input :text, :placeholder => "", label: false
+      = form.input_field :text, :placeholder => "", label: false
       = form.submit "Search"
   .search-results-section

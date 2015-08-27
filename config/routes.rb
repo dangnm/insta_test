@@ -1,4 +1,6 @@
 InstaTest::Application.routes.draw do
+  get "users/update"
+  get "profile/index"
   get "search/index"
   get "upload/index"
   get "home/index"
@@ -8,10 +10,12 @@ InstaTest::Application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  resources 'users', :only => [:update]
   resources 'comments', :only => [:new, :create]
   resources 'photos', :only => [:new, :create, :update]
 
   post 'search' => 'search#search', :as => :search
+  get 'profile_edit' => 'profile#edit', :as => :profile_edit
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

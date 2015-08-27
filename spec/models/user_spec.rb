@@ -15,6 +15,12 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  name                   :string(255)
+#  gender                 :string(255)
+#  bio                    :text
+#  phone                  :string(255)
+#  website                :string(255)
+#  avatar                 :integer
 #
 
 require 'rails_helper'

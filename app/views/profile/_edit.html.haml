@@ -1,0 +1,16 @@
+.profile-edit-page
+  %h1 Profile Edit
+  = simple_form_for(@user, html: { class: 'form-horizontal' }) do |form|
+    .avatar
+      %img{:src => @user.avatar && @user.avatar.url}
+    = form.file_field :avatar, :placeholder => ""
+    = form.input :name, :placeholder => "", value: @user.name
+    = form.input :gender, collection: [:male, :female], value: @user.gender
+    = form.input :bio, :placeholder => "", value: @user.bio
+    = form.input :phone, :placeholder => "", value: @user.phone
+    = form.input :website, :placeholder => "", value: @user.website
+    = form.submit "Save", class: "btn btn-default"
+    = link_to "Cancel", profile_index_path, class: "btn btn-default"
+    
+  .fields-section
+  .nav-section

@@ -6,18 +6,88 @@
 $lightGray: #999;
 
 
+
+.home-page {
+  .photo-section {
+    .photo-item {
+      .photo {
+        img {
+          width: 100%;
+        }
+      }
+
+    }
+  }
+}
+
+
+.home-page {
+  .photo-section {
+    .photo-item {
+      .comment-section {
+        background-color: rgba(238, 238, 238, 0.27);
+        border:1px solid #bbb;
+        .comment-item {
+          padding: 5px;
+          .list {
+            list-style: none;
+            padding-left: 0px;
+            .commenter-image {
+              float: left;
+              width: 50px;
+              img {
+                width: 100%;
+              }
+            }
+            .comment-text {
+              padding-left: 60px;
+              .comment-time {
+                color: #aaa;
+                font-family: verdana;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+        .comment-post {
+          padding: 5px;
+          position: relative;
+
+          #new_comment {
+            .message-wrapper {
+              position: absolute;
+              width: 100%;
+              padding-right: 100px;
+              #comment_message {
+                width: 100%;
+              }
+            }
+            .add-wrapper {
+              float: right;
+              input {
+                width: 85px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: #777;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
-  font-weight: bold;
   line-height: 1;
   &:hover {
-    color: #fff;
+    color: #777;
     text-decoration: none;
   }
 }

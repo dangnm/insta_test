@@ -8,12 +8,15 @@
           %img{:src => p.data.url}
         .comment-section
           .comment-item
-            = render "comment_item", :comments => p.comments
+            = render "comment_item", :comments => p.comments.order(created_at: :desc)
           .comment-post
             = simple_form_for(current_user.comments.new, html: { class: 'form-horizontal' }, :url => comments_path, remote: true) do |form|
               = form.hidden_field :photo_id, value: p.id
               = form.hidden_field :user_id, value: current_user.id
-              = form.input :message, :placeholder => "", label: false
-              = form.submit "Add"
+              .message-wrapper
+                = form.input_field :message, :placeholder => "", label: false
+              .add-wrapper
+                = form.submit "Add"
+              .clearfix
 
 
