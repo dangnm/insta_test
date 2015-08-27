@@ -48,6 +48,18 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  def geometry
+    @geometry ||= get_geometry
+  end
+
+  def get_geometry
+    if @file
+      img = ::Magick::Image::read(@file.file).first
+      geometry = { width: img.columns, height: img.rows }
+    end
+  end
+  
+
   process crop: :data
   # process :resize_to_limit => [170, 170]
 

@@ -1,2 +1,2 @@
 $(".main-container").fadeIn().html("#{escape_javascript(render 'photos/crop_photo', :photo => @photo)}");
-new window.CarrierWaveCropper()
+new window.CarrierWaveCropper(#{@width}, #{@height});

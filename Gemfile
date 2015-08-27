@@ -46,6 +46,7 @@ gem "jquery-fileupload-rails"
 
 gem 'rmagick', :require => 'RMagick'
 
+gem 'ionicons-rails'
 
 group :development, :test do
   gem "rspec"

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def update
   	@user = User.find_by_id(params[:id])
     @user.avatar = params[:user][:avatar]

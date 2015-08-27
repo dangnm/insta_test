@@ -94,6 +94,7 @@ GEM
       railties (~> 4.0.0)
     hike (1.2.3)
     i18n (0.7.0)
+    ionicons-rails (2.0.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -219,6 +220,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   haml-rails
+  ionicons-rails
   jbuilder (~> 1.2)
   jquery-fileupload-rails
   jquery-rails (~> 2.3.0)

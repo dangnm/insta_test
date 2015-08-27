@@ -2,6 +2,13 @@
   %h1 Choose your photo
   = simple_form_for(Photo.new, html: { class: 'form-horizontal', :id => 'photo_uploader' }) do |form|
     = form.hidden_field :user_id, value: current_user.id
-    = form.file_field :data, :placeholder => "", label: false
-    = form.input :caption, :placeholder => "", label: false
+
+    .file-field-custom
+      .fake_file.ion-plus.btn.btn-default{disabled: ""}="Choose file"
+      = form.file_field :data, :placeholder => "", label: false, class: 'real_field'
+    .file-preview
+      .preview
+        %img
+      .name
+    = form.input :caption, :placeholder => ""
     .submit.btn.btn-default="Upload"

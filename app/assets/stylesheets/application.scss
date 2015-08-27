@@ -15,7 +15,8 @@
  *= require jquery.tagit
  *= require_tree .
  */
-@import "bootstrap";
+@import 'bootstrap';
+@import 'ionicons';
 
 $extra_small_device_size: (nil,479px);
 $medium_small_device_size: (480px,767px);

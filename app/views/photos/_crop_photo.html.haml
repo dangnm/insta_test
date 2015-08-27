@@ -2,5 +2,8 @@
   %h1 Crop my photos
   = simple_form_for(photo, html: { class: 'form-horizontal', :id => 'photo_uploader' }) do |form|
     = form.hidden_field :user_id, value: current_user.id
-    = form.cropbox :data
-    = form.submit "Crop"
+    .cropbox-wrapper
+      = form.cropbox :data
+    .crop-btn-wrapper
+      = form.submit "Crop", class: "crop-btn btn btn-default"
+      = link_to "Skip", root_path, class: "btn btn-default"

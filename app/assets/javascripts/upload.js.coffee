@@ -5,8 +5,16 @@ $(document).ready(() ->
   $('#photo_uploader').fileupload
     dataType: 'script'
     add: (e, data) ->
+      reader = new FileReader
+      reader.onload = (e) ->
+        $('#photo_uploader').find('.preview').find('img').attr 'src', e.target.result
+        return
+      reader.readAsDataURL data.files[0]
+
+      $('#photo_uploader').find('.file-preview').find('.name').text(data.files[0].name)
+
       $('#photo_uploader').find('.submit').off('click').on 'click', ->
-        types = /(\.|\/)(gif|jpeg|jpg|png)$/i
+        types = /(\.|\/)(jpeg|jpg|png)$/i
         file = data.files[0]
         if types.test(file.type) || types.test(file.name)
           data.submit()
@@ -15,5 +23,6 @@ $(document).ready(() ->
         return
     progress: (e, data) ->
       return
+    replaceFileInput: true
   return
 )

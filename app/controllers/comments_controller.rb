@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		@photo_id = params[:comment][:photo_id]
 		@comments = Comment.where(:photo_id => params[:comment][:photo_id])

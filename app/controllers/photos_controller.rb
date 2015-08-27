@@ -1,10 +1,15 @@
 class PhotosController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		@photo = Photo.new
 		@photo.caption = params[:photo][:caption]
 		@photo.user_id = params[:photo][:user_id]
 		@photo.data = params[:photo][:data]
+		@width = @photo.data.geometry[:width]
+		@height = @photo.data.geometry[:height]
+		
 		@photo.save
+
 		respond_to do |format|
 			format.js
 		end

@@ -1,3 +1,71 @@
 // Place all the styles related to the upload controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.upload-photo-page {
+  form {
+    .file-field-custom {
+      width: 110px;
+      position: relative;
+      margin-bottom: 5px;
+
+      .fake_file:before {
+        margin-left: -10px;
+        padding-right: 5px;
+      }
+
+      .fake_file {
+        z-index: 1;
+        opacity: 1;
+        width: 100% !important;
+      }
+      .real_field {
+        z-index: 2;
+        position: absolute; //Align position with the container div
+        top: 0px; //Align position with the container div
+        left: 0px; //Align position with the container div
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .file-preview {
+      position: relative;
+      margin-top: 10px;
+      .preview {
+        width: 100px;
+        img {
+          width: 100%;
+        }
+      }
+      .name {
+        padding-left: 120px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%); //vertical align
+        -webkit-transform:translateY(-50%); //vertical align
+        -moz-transform:translateY(-50%); //vertical align
+        -ms-transform:translateY(-50%); //vertical align
+        -o-transform:translateY(-50%); //vertical align
+        vertical-align:top; //vertical align
+      }
+    }
+  }
+}
+
+
+
+.crop-photo-page {
+  form {
+    .cropbox-wrapper {
+      width: 100%;
+      #photo_data_cropbox {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .crop-btn-wrapper {
+      margin-top: 10px;
+    }
+  }
+}
