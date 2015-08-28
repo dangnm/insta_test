@@ -1,4 +1,7 @@
 InstaTest::Application.routes.draw do
+  get "relationships/create"
+  get "relationships/new"
+  get "relationships/destroy"
   get "users/update"
   get "profile/index"
   get "search/index"
@@ -13,6 +16,7 @@ InstaTest::Application.routes.draw do
   resources 'users', :only => [:update]
   resources 'comments', :only => [:new, :create]
   resources 'photos', :only => [:new, :create, :update, :show]
+  resources 'relationships', only: [:create, :destroy]
 
   post 'search' => 'search#search', :as => :search
   get 'profile_edit' => 'profile#edit', :as => :profile_edit

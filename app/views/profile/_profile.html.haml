@@ -2,7 +2,7 @@
 	%h1 Profile
 	.user-info-section
 		.user-avatar
-			%img{:src => current_user.avatar && current_user.avatar.url}
+			%img{:src => current_user.avatar && current_user.avatar.url, onerror: "this.src='/no-avatar.jpg'"}
 		= link_to "Edit profile", profile_edit_path, class: "btn btn-default", remote: true
 	.user-photo-section
 		= render 'photos/photo_grid', :photos => @photos

@@ -1,8 +1,11 @@
 .show-photo-page
   .user-info-section
     .user-avatar
-      %img{:src => @photo.user.avatar && @photo.user.avatar.url}
-    .user-name=@photo.user.name
+      %img{:src => @photo.user.avatar && @photo.user.avatar.url, onerror: "this.src='/no-avatar.jpg'"}
+    .user-info-wrapper
+      .user-name=@photo.user.name
+      .follow-wrapper
+        = render('relationships/follow_wrapper', :user => @photo.user)
   .clearfix
   .photo-section.photo-item{:class => "item-#{@photo.id}" }
     .caption=@photo.caption

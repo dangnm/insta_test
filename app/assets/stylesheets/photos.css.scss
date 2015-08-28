@@ -12,9 +12,14 @@
         width: 100%;
       }
     }
-    .user-name {
+    .user-info-wrapper {
       padding-left: 60px;
-      font-weight: bold;
+      .user-name {
+        font-weight: bold;
+      }
+      .follow-wrapper {
+        
+      }
     }
   }
   .photo-section {
