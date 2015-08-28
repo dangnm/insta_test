@@ -1,11 +1,4 @@
+.show-more-comments-wrapper
+  = render "comments/show_more_comments", :photo => photo, :page => 2
 %ul.list
-  - comments.each do |c|
-    %li
-      .commenter-image
-        %img{:src => c.user.avatar.url}
-      .comment-text-wrapper
-        .comment-text
-          %span.commenter=c.user.name
-          %span.text=c.message
-        %span.comment-time=c.created_at
-      .clearfix
+  = render "comments/comment_item_element", :comments => comments

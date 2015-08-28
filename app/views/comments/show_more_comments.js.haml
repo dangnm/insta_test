@@ -1,0 +1,3 @@
+$(".main-container").find(".photo-item[class~='item-#{@photo.id}']").find('.comment-section').find('.list').fadeIn().prepend("#{escape_javascript(render 'comments/comment_item_element', :comments => @comments)}");
+
+$(".main-container").find(".photo-item[class~='item-#{@photo.id}']").find('.comment-section').find('.show-more-comments-wrapper').fadeIn().html("#{escape_javascript(render 'comments/show_more_comments', :photo => @photo, :page => @page)}");

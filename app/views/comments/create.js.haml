@@ -1,1 +1,1 @@
-$(".main-container").find(".photo-item[class~='item-#{@photo_id}']").find(".comment-item").fadeIn().html("#{escape_javascript(render 'home/comment_item', :comments => @comments)}");
+$(".main-container").find(".photo-item[class~='item-#{@photo.id}']").find(".comment-item").fadeIn().html("#{escape_javascript(render 'home/comment_item', :comments => @comments, :photo => @photo)}");

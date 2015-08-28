@@ -18,6 +18,8 @@ InstaTest::Application.routes.draw do
   get 'profile_edit' => 'profile#edit', :as => :profile_edit
   get 'profile/show_more_photos' => 'profile#show_more_photos', :as => :profile_show_more_photos
 
+  get 'comments/show_more' => 'comments#show_more_comments', :as => :comments_show_more
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -8,7 +8,7 @@
           %img{:src => p.data.url}
         .comment-section
           .comment-item
-            = render "comment_item", :comments => p.comments
+            = render "comment_item", :comments => Comment.photo_comments(p), :photo => p
           .comment-post
             = simple_form_for(current_user.comments.new, html: { class: 'form-horizontal' }, :url => comments_path, remote: true) do |form|
               = form.hidden_field :photo_id, value: p.id

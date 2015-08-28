@@ -19,8 +19,10 @@ class Photo < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   hashtaggable_attribute :caption
 
+  PHOTOS_PER_PAGE = 9
+
   def self.my_photos(user, params = {:page => 1})
-    @photos = Photo.paginate(:page => params[:page], :per_page => 9)
+    @photos = Photo.paginate(:page => params[:page], :per_page => PHOTOS_PER_PAGE)
                    .where(:user_id => user.id)
   end
 
