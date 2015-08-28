@@ -2,7 +2,6 @@ class ProfileController < ApplicationController
 	before_action :authenticate_user!
   def index
     @photos = Photo.my_photos(current_user, :page => params[:page])
-    @page = 2
   end
 
   def show_more_photos
