@@ -26,4 +26,13 @@ class PhotosController < ApplicationController
 		redirect_to root_path
 	end
 
+	def show_more_feed
+		@photos = Photo.my_photos_feed(current_user, :page => params[:page])
+		@page = params[:page].to_i + 1
+
+		respond_to do |format|
+			format.js
+		end
+	end
+
 end

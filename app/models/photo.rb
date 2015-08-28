@@ -21,9 +21,16 @@ class Photo < ActiveRecord::Base
 
   PHOTOS_PER_PAGE = 9
 
+  PHOTOS_FEED_PER_PAGE = 4
+
   def self.my_photos(user, params = {:page => 1})
-    @photos = Photo.paginate(:page => params[:page], :per_page => PHOTOS_PER_PAGE)
+    Photo.paginate(:page => params[:page], :per_page => PHOTOS_PER_PAGE)
                    .where(:user_id => user.id)
+  end
+
+  def self.my_photos_feed(user, params = {:page => 1})
+    Photo.paginate(:page => params[:page], :per_page => PHOTOS_FEED_PER_PAGE)
+                   .where(:user_id => user.id).order(created_at: :desc)
   end
 
   def self.search_photo_by_hash_tags(tags)

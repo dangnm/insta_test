@@ -1,22 +1,10 @@
 .home-page
-  %h1 My photos
+  %h1 My feed
   .photo-section
-    - @photos.each do |p|
-      .photo-item{:class => "item-#{p.id}" } 
-        .caption=p.caption
-        .photo
-          %img{:src => p.data.url}
-        .comment-section
-          .comment-item
-            = render "comment_item", :comments => Comment.photo_comments(p), :photo => p
-          .comment-post
-            = simple_form_for(current_user.comments.new, html: { class: 'form-horizontal' }, :url => comments_path, remote: true) do |form|
-              = form.hidden_field :photo_id, value: p.id
-              = form.hidden_field :user_id, value: current_user.id
-              .message-wrapper
-                = form.input_field :message, :placeholder => "", label: false
-              .add-wrapper
-                = form.submit "Add"
-              .clearfix
+    .photo-feed-element-section
+      = render "photos/photos_feed_element", :photos => @photos
+    .clearfix
+    .show-more-photos-feed
+      = render "photos/show_more_photos_feed", :user => current_user, :page => 2
 
 
