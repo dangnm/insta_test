@@ -15,6 +15,10 @@ class PhotosController < ApplicationController
 		end
 	end
 
+	def show
+		@photo = Photo.where(:id => params[:id]).first
+	end
+
 	def update
 		@photo = Photo.find params[:id]
 		@photo.data_crop_x = params[:photo][:data_crop_x]

@@ -3,4 +3,4 @@
     .photo-wrapper 
       .caption=p.caption
       .photo
-        %img{:src => p.data.url, onerror: "this.src='/image-not-found.jpg'"}
+        = link_to image_tag(p.data.url, onerror: "this.src='/image-not-found.jpg'"), photo_path(p.id), {:class => ''}

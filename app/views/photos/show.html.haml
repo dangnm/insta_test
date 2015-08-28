@@ -1,0 +1,12 @@
+.show-photo-page
+  .user-info-section
+    .user-avatar
+      %img{:src => @photo.user.avatar && @photo.user.avatar.url}
+    .user-name=@photo.user.name
+  .clearfix
+  .photo-section.photo-item{:class => "item-#{@photo.id}" }
+    .caption=@photo.caption
+    .photo
+      %img{:src => @photo.data.url}
+    .comment-section
+      = render('comments/comment_section', :photo => @photo)

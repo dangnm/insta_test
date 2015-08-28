@@ -12,7 +12,7 @@ InstaTest::Application.routes.draw do
 
   resources 'users', :only => [:update]
   resources 'comments', :only => [:new, :create]
-  resources 'photos', :only => [:new, :create, :update]
+  resources 'photos', :only => [:new, :create, :update, :show]
 
   post 'search' => 'search#search', :as => :search
   get 'profile_edit' => 'profile#edit', :as => :profile_edit
