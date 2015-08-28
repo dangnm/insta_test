@@ -6,4 +6,7 @@
 		= link_to "Edit profile", profile_edit_path, class: "btn btn-default", remote: true
 	.user-photo-section
 		= render 'photos/photo_grid', :photos => @photos
+		.clearfix
+		.show-more-wrapper
+			= render 'profile/show_more'
 

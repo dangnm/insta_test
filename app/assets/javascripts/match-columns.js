@@ -68,17 +68,22 @@ CustomLib.responsive.MatchColumns.prototype.matchHeights = function($columns) {
   });
 }
 
-CustomLib.responsive.MatchColumns.prototype.update = function($row) { 
+CustomLib.responsive.MatchColumns.prototype.updateAfterLoadedImages = function($row) { 
   var _this = this;
   $(_this.dom).filter('[data-match-columns="true"]').hide();
   $(_this.dom).waitForImages().done(function() {
     $(_this.dom).filter('[data-match-columns="true"]').show();
-    $(_this.dom).filter('[data-match-columns="true"]').each(function(){
-      var $row = $(this);
-      $columns = _this.getColumns($row);
-      _this.matchHeights($columns);
-      _this.bindColumns($columns);
-    });
+    _this.update();
+  });
+}
+
+CustomLib.responsive.MatchColumns.prototype.update = function($row) { 
+  var _this = this;
+  $(_this.dom).filter('[data-match-columns="true"]').each(function(){
+    var $row = $(this);
+    $columns = _this.getColumns($row);
+    _this.matchHeights($columns);
+    _this.bindColumns($columns);
   });
 }
 

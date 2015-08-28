@@ -19,6 +19,11 @@ class Photo < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   hashtaggable_attribute :caption
 
+  def self.my_photos(user, params = {:page => 1})
+    @photos = Photo.paginate(:page => params[:page], :per_page => 9)
+                   .where(:user_id => user.id)
+  end
+
   def self.search_photo_by_hash_tags(tags)
     @photos = []
     @hash_tags = SimpleHashtag::Hashtag.where(name: tags)

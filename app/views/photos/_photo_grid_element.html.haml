@@ -1,0 +1,6 @@
+- photos.each do |p|
+  .photo-item.col-xs-6.col-ms-6.col-sm-4.col-md-4.col-lg-4{:class => "item-#{p.id}" }
+    .photo-wrapper 
+      .caption=p.caption
+      .photo
+        %img{:src => p.data.url, onerror: "this.src='/image-not-found.jpg'"}

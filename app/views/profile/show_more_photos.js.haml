@@ -1,0 +1,7 @@
+$(".main-container").find('.profile-page').find('.user-photo-section').find('.photo-grid').fadeIn().append("#{escape_javascript(render 'photos/photo_grid_element', :photos => @photos)}");
+
+$(".main-container").find('.profile-page').find('.user-photo-section').find('.show-more-wrapper').fadeIn().html("#{escape_javascript(render 'profile/show_more')}");
+
+
+var matchColumns = new CustomLib.responsive.MatchColumns($(".photo-grid"));
+matchColumns.update();

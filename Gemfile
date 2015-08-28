@@ -18,7 +18,7 @@ gem 'postgresql_lo_streamer'
 
 gem 'devise', '>= 3.2.1'
 
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.0.7'
 
 gem 'haml-rails'
 

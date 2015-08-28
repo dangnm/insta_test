@@ -16,6 +16,7 @@ InstaTest::Application.routes.draw do
 
   post 'search' => 'search#search', :as => :search
   get 'profile_edit' => 'profile#edit', :as => :profile_edit
+  get 'profile/show_more_photos' => 'profile#show_more_photos', :as => :profile_show_more_photos
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

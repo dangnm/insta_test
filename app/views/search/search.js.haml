@@ -1,1 +1,4 @@
 $(".main-container").find(".search-results-section").fadeIn().html("#{escape_javascript(render 'search/search_results', :photos => @photos)}");
+
+var matchColumns = new CustomLib.responsive.MatchColumns($(".photo-grid"));
+matchColumns.updateAfterLoadedImages();
