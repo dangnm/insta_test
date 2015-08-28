@@ -2,6 +2,10 @@
   %h1 Search
   .search-section
     = simple_form_for(:search, html: { class: 'form-horizontal' }, :url => search_path, remote: true) do |form|
-      = form.input_field :text, :placeholder => "", label: false
-      = form.submit "Search"
+      .search_text_wrapper
+        .icon.search-icon
+          .ion-ios-search
+        .search_field_wrapper
+          = form.input_field :text, :placeholder => "", label: false
+      = form.submit "Search", class: 'search-btn btn btn-default'
   .search-results-section

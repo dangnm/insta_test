@@ -1,3 +1,85 @@
 // Place all the styles related to the search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-page {
+  .search-section {
+    form {
+      .search_text_wrapper {
+        border-radius: 5px;
+        background: white;
+        border: 1.9px solid #bebebe;
+        height: 40px;
+        margin-bottom: 10px;
+        .search-icon {
+          position: absolute;
+          padding-left: 8px;
+          padding-top: 6px;
+          font-size: 19px;
+        }
+        .search_field_wrapper {
+          height: 100%;
+          position: relative;
+          margin-left: 12px;
+          overflow: hidden;
+
+          .tagit {
+            border: none;
+            background: transparent;
+            width: 9999px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%); //vertical align
+            -webkit-transform:translateY(-50%); //vertical align
+            -moz-transform:translateY(-50%); //vertical align
+            -ms-transform:translateY(-50%); //vertical align
+            -o-transform:translateY(-50%); //vertical align
+            vertical-align:top; //vertical align
+
+            .ui-icon-close {
+              display: none !important;
+            }
+            .tagit-choice {
+              margin-left: 0px;
+              margin-right: 4px;
+              margin-top: 0px;
+              margin-bottom: 0px;
+              padding-top: 2px;
+              padding-bottom: 2px;
+
+              .tagit-label {
+                padding-left: 6px;
+                padding-right: 3px;
+              }
+              .close {
+                padding-right: 16px;
+                .text-icon {
+                  font-size: 15px;
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%); //vertical align
+                  -webkit-transform:translateY(-50%); //vertical align
+                  -moz-transform:translateY(-50%); //vertical align
+                  -ms-transform:translateY(-50%); //vertical align
+                  -o-transform:translateY(-50%); //vertical align
+                  vertical-align:top; //vertical align
+                }
+              }
+            }
+            .tagit-new {
+              padding-left: 0px;
+              padding-right: 0px;
+              padding-top: 0px;
+              padding-bottom: 0px;
+              input {
+                background: transparent;
+              }
+            }
+          }
+        }
+        
+      }
+      
+    }
+  } 
+}

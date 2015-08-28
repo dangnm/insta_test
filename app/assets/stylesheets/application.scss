@@ -13,10 +13,19 @@
  *= require jquery.fileupload
  *= require jquery.ui.all
  *= require jquery.tagit
- *= require_tree .
  */
 @import 'bootstrap';
 @import 'ionicons';
+@import 'jquery.tagit';
+@import 'custom_responsive';
+@import 'common';
+@import 'home';
+@import 'comments';
+@import 'photos';
+@import 'profile';
+@import 'search';
+@import 'upload';
+@import 'users';
 
 $extra_small_device_size: (nil,479px);
 $medium_small_device_size: (480px,767px);

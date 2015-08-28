@@ -1,0 +1,31 @@
+.search-page, .profile-page {
+  .row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .photo-grid {
+    .photo-item {
+        // @extend .col-xs-6;
+        // @extend .col-ms-6;
+        // @extend .col-sm-4;
+        // @extend .col-md-4;
+        // @extend .col-lg-4;
+
+        // margin-bottom: -99999px;
+        // padding-bottom: 99999px;
+
+
+        border: 1px solid #ddd;
+        // height: 200px;
+      
+        .photo {
+          img {
+            width: 100%;
+            // height: 200px;
+          }
+        }
+    }
+  }
+}

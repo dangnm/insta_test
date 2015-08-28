@@ -17,4 +17,5 @@
 //= require jquery-fileupload/basic
 //= require tag-it
 //= require bootstrap
+//= require match-columns
 //= require_tree .

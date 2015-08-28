@@ -9,4 +9,6 @@
     = render '/layouts/header'
     .container.main-container
       = yield
+      .clearfix
       = render '/layouts/footer'
+= yield(:js)
