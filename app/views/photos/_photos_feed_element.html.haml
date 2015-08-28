@@ -1,6 +1,8 @@
 - @photos.each do |p|
   .photo-item{:class => "item-#{p.id}" } 
-    .caption=p.caption
+    .caption-wrapper
+      %span.user-name=p.user.name
+      %span.caption=p.caption
     .photo
       %img{:src => p.data.url}
     .comment-section

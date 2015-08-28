@@ -11,6 +11,11 @@ $lightGray: #999;
   .photo-section {
     .photo-item {
       margin-top: 12px;
+      .caption-wrapper {
+        .user-name {
+          font-weight: bold;
+        }
+      }
       .photo {
         border:1px solid #bbb;
         margin-top: 4px;
