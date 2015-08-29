@@ -1,6 +1,9 @@
 == Installations
 * Install RMagick
 
+== Test
+* Run rake db:test:prepare
+
 == README
 
 This README would normally document whatever steps are necessary to get the
