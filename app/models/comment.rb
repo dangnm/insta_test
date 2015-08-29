@@ -19,7 +19,7 @@ class Comment < ActiveRecord::Base
   COMMENTS_PER_PAGE = 4
 
   def self.photo_comments(photo, params = {:page => 1})
-    Comment.where(:photo_id => photo.try(:id))
+    where(:photo_id => photo.try(:id))
            .paginate(:page => params[:page], :per_page => COMMENTS_PER_PAGE)
            .order(created_at: :desc).reverse
   end

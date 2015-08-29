@@ -24,12 +24,12 @@ class Photo < ActiveRecord::Base
   PHOTOS_FEED_PER_PAGE = 4
 
   def self.my_photos(user, params = {:page => 1})
-    Photo.paginate(:page => params[:page], :per_page => PHOTOS_PER_PAGE)
+    paginate(:page => params[:page], :per_page => PHOTOS_PER_PAGE)
                    .where(:user_id => user.id)
   end
 
   def self.my_photos_feed(user, params = {:page => 1})
-    Photo.paginate(:page => params[:page], :per_page => PHOTOS_FEED_PER_PAGE)
+    paginate(:page => params[:page], :per_page => PHOTOS_FEED_PER_PAGE)
                    .where(:user_id => User.first
                           .followed_users.pluck(:id).push(user.id))
                    .order(created_at: :desc)
