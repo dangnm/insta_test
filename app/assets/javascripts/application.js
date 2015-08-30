@@ -18,4 +18,12 @@
 //= require tag-it
 //= require bootstrap
 //= require match-columns
-//= require_tree .
+//= require comments
+//= require home
+//= require jquery.waitforimages
+//= require photos
+//= require profile
+//= require relationships
+//= require search
+//= require upload
+//= require users

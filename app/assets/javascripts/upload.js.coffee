@@ -8,7 +8,6 @@ $(document).ready(() ->
       reader = new FileReader
       reader.onload = (e) ->
         $('#photo_uploader').find('.preview').find('img').attr 'src', e.target.result
-        return
       reader.readAsDataURL data.files[0]
 
       $('#photo_uploader').find('.file-preview').find('.name').text(data.files[0].name)
@@ -20,9 +19,5 @@ $(document).ready(() ->
           data.submit()
         else
           alert("#{file.name} is not a gif, jpg or png image file")
-        return
-    progress: (e, data) ->
-      return
     replaceFileInput: true
-  return
-)
+);

@@ -79,4 +79,5 @@ InstaTest::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.assets.precompile += %w( *.eot *.woff *.ttf *.otf *.svg )
+  config.assets.precompile |= Dir["#{Rails.root}/app/assets/javascripts/*.*"]
 end

@@ -1,0 +1,1 @@
+(function(){$(document).ready(function(){return $(".search-page").find("#search_text").tagit({singleFieldDelimiter:","})})}).call(this);
