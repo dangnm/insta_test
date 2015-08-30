@@ -92,8 +92,8 @@ InstaTest::Application.configure do
     authentication: "plain",
     domain: 'localhost',
     enable_starttls_auto: true,
-    user_name: 'minhdang.net@gmail.com',
-    password: '8eTnPYn8lFsrezOgzd9ZLg'
+    user_name: ENV['MANDRILL_USERNAME'],
+    password: ENV['MANDRILL_APIKEY']
   }  
 
 end
