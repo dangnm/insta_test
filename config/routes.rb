@@ -1,4 +1,5 @@
 InstaTest::Application.routes.draw do
+  get "activities/index"
   get "relationships/create"
   get "relationships/new"
   get "relationships/destroy"
@@ -25,6 +26,8 @@ InstaTest::Application.routes.draw do
   get 'comments_show_more' => 'comments#show_more_comments', :as => :comments_show_more
 
   get 'photos_show_more_feed' => 'photos#show_more_feed', :as => :photos_show_more_feed
+
+  get 'photos_show_and_mark_read/:activity_id' => 'photos#show_and_mark_read', :as => :photos_show_and_mark_read
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

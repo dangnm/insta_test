@@ -2,12 +2,15 @@
   .container
     .navbar-header
       = link_to "My photos", root_path, id: "logo", class: 'navbar-brand'
-      %button.navbar-toggle{"data-toggle" => "collapse", "data-target" => "#navbar"}
-        %span.sr-only="Toggle navigation"
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-    #navbar.navbar-collapse.collapse.in{"aria-expanded" => "true"}
+      .small-screen-controls
+        %button.navbar-toggle.collapsed{"data-toggle" => "collapse", "data-target" => "#navbar", "aria-expanded" => "false"}
+          %span.sr-only="Toggle navigation"
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        .nav-notifications-icon.hidden-md.hidden-lg.hidden-sm
+          = link_to "", activities_index_path, class: 'ion-ios-information', remote: true
+    #navbar.navbar-collapse.collapse{"aria-expanded" => "false"}
       %ul.nav.navbar-nav
         %li= link_to "Home", root_path
         %li= link_to "Upload", upload_index_path
@@ -22,5 +25,10 @@
               %li.divider
               %li
                 = link_to "Sign out", destroy_user_session_path, :method => :delete
+            %li.nav-notifications.dropdown.open.hidden-xs.hidden-ms
+              .nav-notifications-icon
+                = link_to "", activities_index_path, class: 'ion-ios-information dropdown-toggle', remote: true, "data-toggle" => "dropdown"
+              %ul.dropdown-menu.nav-notifications-info.hide
+                %li= ""
         - else
           %li= link_to "Sign in", new_user_session_path

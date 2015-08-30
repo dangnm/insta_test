@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828145234) do
+ActiveRecord::Schema.define(version: 20150830112918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: true do |t|
+    t.integer  "trackable_id"
+    t.string   "trackable_type"
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.string   "key"
+    t.text     "parameters"
+    t.integer  "recipient_id"
+    t.string   "recipient_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
+  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -36,6 +53,15 @@ ActiveRecord::Schema.define(version: 20150828145234) do
   end
 
   add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
+
+  create_table "read_marks", force: true do |t|
+    t.integer  "readable_id"
+    t.string   "readable_type", null: false
+    t.integer  "user_id",       null: false
+    t.datetime "timestamp"
+  end
+
+  add_index "read_marks", ["user_id", "readable_type", "readable_id"], name: "index_read_marks_on_user_id_and_readable_type_and_readable_id", using: :btree
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"

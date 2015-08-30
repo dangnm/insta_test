@@ -1,0 +1,6 @@
+$(".nav-notifications-info").fadeIn().html("#{escape_javascript(render 'activities/activities', :activities => @activities)}");
+if($(".nav-notifications-info").hasClass('hide')) {
+$(".nav-notifications-info").removeClass('hide');
+} else {
+$(".nav-notifications-info").addClass('hide');
+}

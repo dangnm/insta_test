@@ -3,7 +3,6 @@
 .comment-post
   = simple_form_for(current_user.comments.new, html: { class: 'form-horizontal' }, :url => comments_path, remote: true) do |form|
     = form.hidden_field :photo_id, value: photo.id
-    = form.hidden_field :user_id, value: current_user.id
     .message-wrapper
       = form.input_field :message, :placeholder => "", label: false
     .add-wrapper
