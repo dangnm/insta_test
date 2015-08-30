@@ -80,4 +80,20 @@ InstaTest::Application.configure do
 
   config.assets.precompile += %w( *.eot *.woff *.ttf *.otf *.svg )
   config.assets.precompile |= Dir["#{Rails.root}/app/assets/javascripts/*.*"]
+
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default charset: 'utf-8'
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mandrillapp.com',
+    port: 587,
+    authentication: "plain",
+    domain: 'localhost',
+    enable_starttls_auto: true,
+    user_name: 'minhdang.net@gmail.com',
+    password: '8eTnPYn8lFsrezOgzd9ZLg'
+  }  
+
 end

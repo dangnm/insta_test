@@ -49,6 +49,8 @@ gem 'public_activity', '~> 1.4.2'
 
 gem 'unread', '~> 0.6.1'
 
+gem 'tlsmail' # Gmail email
+
 group :development, :test do
   gem "rspec"
   gem "rspec-rails"
