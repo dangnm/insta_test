@@ -1,0 +1,4 @@
+- @activities.each do |activity|
+  %li
+    = link_to "#{activity.owner.name} has commented on your photo", photo_path(activity.photo_id), {:class => ''}
+  %li.divider

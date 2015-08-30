@@ -11,10 +11,14 @@
 #
 
 class Comment < ActiveRecord::Base
+  include PublicActivity::Model
+
   include SimpleHashtag::Hashtaggable
+  hashtaggable_attribute :message
+  
   belongs_to :user
   belongs_to :photo
-  hashtaggable_attribute :message
+  
 
   COMMENTS_PER_PAGE = 4
 

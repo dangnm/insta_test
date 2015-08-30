@@ -1,4 +1,5 @@
 InstaTest::Application.routes.draw do
+  get "activities/index"
   get "relationships/create"
   get "relationships/new"
   get "relationships/destroy"

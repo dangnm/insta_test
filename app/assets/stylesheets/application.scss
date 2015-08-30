@@ -84,7 +84,35 @@ body {
 }
 
 /* navbar */
-.navbar-inner {
+.navbar {
+  .small-screen-controls {
+    float: right;
+    .navbar-toggle {
+      float: left;
+    }
+    .nav-notifications-icon {
+      float: right;
+      font-size: 34px;
+      padding-right: 5px;
+    }
+  }
+
+  .nav-notifications {
+    margin-left: 30px;
+    .nav-notifications-icon {
+      font-size: 34px;
+      
+    }
+    .nav-notifications-info {
+      li {
+        margin-left: 10px;
+        a {
+          white-space: normal;
+        }
+      }
+    }
+  }
+  
 }
 
 

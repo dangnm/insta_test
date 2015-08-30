@@ -23,6 +23,15 @@ class Photo < ActiveRecord::Base
 
   PHOTOS_FEED_PER_PAGE = 4
 
+  def add_comment(commenter, message)
+    comment = Comment.new
+    comment.user = commenter
+    comment.photo = self
+    comment.message = message
+    comment.save
+    comment
+  end
+
   def self.my_photos(user, params = {:page => 1})
     paginate(:page => params[:page], :per_page => PHOTOS_PER_PAGE)
                    .where(:user_id => user.id)
