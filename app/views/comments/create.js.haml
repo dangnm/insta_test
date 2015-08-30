@@ -1,1 +1,3 @@
 $(".main-container").find(".photo-item[class~='item-#{@photo.id}']").find(".comment-item").fadeIn().html("#{escape_javascript(render 'comments/comment_item', :comments => @comments, :photo => @photo)}");
+
+$(".main-container").find(".photo-item[class~='item-#{@photo.id}']").find(".comment-post").find(".message-wrapper").find("input").val('');
