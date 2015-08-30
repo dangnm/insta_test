@@ -55,6 +55,7 @@ group :development, :test do
   gem "faker"
   gem 'awesome_print'
   gem 'annotate'
+  gem "letter_opener"
   #gem 'railroady' # this causes Rake not work on windows os
 end
 

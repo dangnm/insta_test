@@ -20,6 +20,8 @@ module InstaTest
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.eager_load_paths += Dir[ Rails.root.join('lib'),  Rails.root.join('app', '**/')]
+
     config.generators do |g|
       g.test_framework :rspec
       g.fixture_replacement :factory_girl, suffix: 'factory', dir: 'spec/factories'
