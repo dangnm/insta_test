@@ -43,7 +43,7 @@ RSpec.describe Photo, type: :model do
     before do
       stub_const("Photo::PHOTOS_FEED_PER_PAGE", 4)
     end
-    context "query photo feed of user 1 which follows user 2" do
+    context "query photo feed of user 2 which follows user 1" do
       let!(:user1) { create(:user, email: 'test@test.com')}
       let!(:user2) { create(:user, email: 'test2@test.com')}
       let!(:user3) { create(:user, email: 'test3@test.com')}
@@ -51,23 +51,23 @@ RSpec.describe Photo, type: :model do
       let!(:photos2) { create_list(:photo, 3, user: user2)}
       let!(:photos3) { create_list(:photo, 3, user: user3)}
       before do 
-        user1.follow!(user2)
-        @photos_1_page_1 = Photo.my_photos_feed(user1, {page: 1})
-        @photos_1_page_2 = Photo.my_photos_feed(user1, {page: 2})
+        user2.follow!(user1)
+        @photos_2_page_1 = Photo.my_photos_feed(user2, {page: 1})
+        @photos_2_page_2 = Photo.my_photos_feed(user2, {page: 2})
       end
       it "returns 4 photos of his photos or his follower photos
           on the first page" do
-        expect(@photos_1_page_1.to_a.size).to eq(4)
+        expect(@photos_2_page_1.to_a.size).to eq(4)
       end
 
       it "returns 3 photos of his photos or his follower photos
           on the second page" do
-        expect(@photos_1_page_2.to_a.size).to eq(3)
+        expect(@photos_2_page_2.to_a.size).to eq(3)
       end
 
       it "does not contain photos of unfollowed users" do 
-        expect(@photos_1_page_1).not_to include(*photos3)
-        expect(@photos_1_page_2).not_to include(*photos3)
+        expect(@photos_2_page_1).not_to include(*photos3)
+        expect(@photos_2_page_2).not_to include(*photos3)
       end
     end
   end
