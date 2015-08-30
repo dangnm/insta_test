@@ -19,6 +19,8 @@ InstaTest::Application.routes.draw do
   resources 'photos', :only => [:new, :create, :update, :show]
   resources 'relationships', only: [:create, :destroy]
 
+  patch 'photos/:id/crop' => 'photos#crop', :as => :photo_crop
+
   post 'search' => 'search#search', :as => :search
   get 'profile_edit' => 'profile#edit', :as => :profile_edit
   get 'profile_show_more_photos' => 'profile#show_more_photos', :as => :profile_show_more_photos

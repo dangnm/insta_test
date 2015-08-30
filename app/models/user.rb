@@ -77,4 +77,15 @@ class User < ActiveRecord::Base
                     photos.caption as photo_caption")
             .paginate(:page => params[:page], :per_page => ACTIVITIES_PER_PAGE)
   end
+
+  def crop_photo(photo, crop_x, crop_y, crop_w, crop_h)
+    photo = Photo.find_by_id_and_user_id(photo.id, id)
+    photo.data_crop_x = crop_x
+    photo.data_crop_y = crop_y
+    photo.data_crop_w = crop_w
+    photo.data_crop_h = crop_h
+    photo.data = photo.data.file
+    photo.save
+    photo
+  end
 end

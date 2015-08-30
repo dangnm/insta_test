@@ -1,6 +1,6 @@
 .crop-photo-page
   %h1 Crop my photos
-  = simple_form_for(photo, html: { class: 'form-horizontal', :id => 'photo_uploader' }) do |form|
+  = simple_form_for(photo, :url => photo_crop_path(photo.id), html: { class: 'form-horizontal', :id => 'photo_uploader' }) do |form|
     = form.hidden_field :user_id, value: current_user.id
     .cropbox-wrapper
       = form.cropbox :data
