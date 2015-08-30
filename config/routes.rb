@@ -27,6 +27,8 @@ InstaTest::Application.routes.draw do
 
   get 'photos_show_more_feed' => 'photos#show_more_feed', :as => :photos_show_more_feed
 
+  get 'photos_show_and_mark_read/:activity_id' => 'photos#show_and_mark_read', :as => :photos_show_and_mark_read
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

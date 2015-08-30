@@ -1,4 +1,6 @@
 - @activities.each do |activity|
-  %li
-    = link_to "#{activity.owner.name} has commented on your photo", photo_path(activity.photo_id), {:class => ''}
+  %li.activity-item{class: ("unread" if !current_user.have_read?(activity))}
+    = link_to "#{activity.owner.name} has commented on your photo", photos_show_and_mark_read_path(activity.id), {:class => ''}
   %li.divider
+%li.see-all
+  = link_to "See all", '#', {:class => ''}

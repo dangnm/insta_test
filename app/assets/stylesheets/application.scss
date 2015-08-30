@@ -104,11 +104,19 @@ body {
       
     }
     .nav-notifications-info {
-      li {
-        margin-left: 10px;
+      width: 260px;
+      li.activity-item {
+        margin-right: 0px;
+        margin-left: 0px;
         a {
           white-space: normal;
         }
+      }
+      li.activity-item.unread {
+        background: #f9f9f9;
+      }
+      .see-all {
+        text-align: center;
       }
     }
   }

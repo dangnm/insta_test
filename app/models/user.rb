@@ -46,7 +46,9 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  ACTIVITIES_LIMIT = 10
+  acts_as_reader
+
+  ACTIVITIES_PER_PAGE = 5
 
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)
@@ -60,20 +62,19 @@ class User < ActiveRecord::Base
     relationships.find_by_followed_id(other_user.id).destroy
   end
 
-  def activities
-    PublicActivity::Activity
-                    .joins("INNER JOIN comments 
-                            ON activities.recipient_id = comments.id")
-                    .joins("INNER JOIN photos 
-                            ON comments.photo_id = photos.id")
-                    .joins("INNER JOIN users 
-                            ON photos.user_id = users.id")
-                    .order("activities.created_at desc")
-                    .where("users.id = ?", id)
-                    .where("activities.owner_type = ?", "User") 
-                    .select("activities.*, 
-                            photos.id as photo_id,
-                            photos.caption as photo_caption")
-                    .limit(ACTIVITIES_LIMIT)
+  def activities(params = {:page => 1})
+    Activity.joins("INNER JOIN comments 
+                    ON activities.recipient_id = comments.id")
+            .joins("INNER JOIN photos 
+                    ON comments.photo_id = photos.id")
+            .joins("INNER JOIN users 
+                    ON photos.user_id = users.id")
+            .order("activities.created_at desc")
+            .where("users.id = ?", id)
+            .where("activities.owner_type = ?", "User") 
+            .select("activities.*, 
+                    photos.id as photo_id,
+                    photos.caption as photo_caption")
+            .paginate(:page => params[:page], :per_page => ACTIVITIES_PER_PAGE)
   end
 end

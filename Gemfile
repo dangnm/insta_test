@@ -48,7 +48,9 @@ gem 'rmagick', :require => 'RMagick'
 
 gem 'ionicons-rails'
 
-gem 'public_activity'
+gem 'public_activity', '~> 1.4.2'
+
+gem 'unread', '~> 0.6.1'
 
 group :development, :test do
   gem "rspec"

@@ -36,7 +36,13 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.where(:id => params[:id]).first
+    @photo = Photo.find_by_id(params[:id])
+  end
+
+  def show_and_mark_read
+    @activity = Activity.find_by_id(params[:activity_id])
+    @activity.mark_as_read! :for => current_user
+    redirect_to photo_path(@activity.recipient.photo.id)
   end
 
 end
