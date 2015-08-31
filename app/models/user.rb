@@ -50,6 +50,17 @@ class User < ActiveRecord::Base
 
   ACTIVITIES_PER_PAGE = 5
 
+  def update_user(params = {})
+    self.avatar = params[:avatar]
+    self.name = params[:name]
+    self.gender = params[:gender]
+    self.bio = params[:bio]
+    self.phone = params[:phone]
+    self.website = params[:website]
+    save
+    self
+  end
+
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)
   end
@@ -85,6 +96,17 @@ class User < ActiveRecord::Base
     photo.data_crop_w = crop_w
     photo.data_crop_h = crop_h
     photo.data = photo.data.file
+    photo.save
+    photo
+  end
+
+  def upload_photo(params = {})
+    photo = Photo.new
+    photo.caption = params[:caption]
+    photo.user_id = id
+    photo.data = params[:data]
+    photo.width = photo.data.geometry[:width]
+    photo.height = photo.data.geometry[:height]
     photo.save
     photo
   end

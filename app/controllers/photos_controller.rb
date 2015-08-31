@@ -1,14 +1,7 @@
 class PhotosController < ApplicationController
   before_action :authenticate_user!
   def create
-    @photo = Photo.new
-    @photo.caption = params[:photo][:caption]
-    @photo.user_id = current_user.id
-    @photo.data = params[:photo][:data]
-    @width = @photo.data.geometry[:width]
-    @height = @photo.data.geometry[:height]
-    
-    @photo.save
+    @photo = current_user.upload_photo(params[:photo])
 
     respond_to do |format|
       format.js
